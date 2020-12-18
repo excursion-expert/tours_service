@@ -1,15 +1,25 @@
+docker run -p 3002:3002 sha256:150aefd92d654a7e65a1c36a256b5706af2381786dc66872a78d33e1c4c443fa
+
+
+
 node pgCategoriesGen.js --lines 30
 node pgListingsGen.js --lines 10000000
 node pgLocation_CategoriesGen.js --lines 14500
 node pgLocationsGen.js --lines 1000
 node pgToursGen.js --lines 10000000
 COPY categories from 'pgCategoriesData.csv' delimiter '|' csv header;
-COPY locations from 'pgLocationsData.csv' delimiter '|' csv header;
+COPY locations from 'pgLocationsData.csv' d\telimiter '|' csv header;
 COPY listings from 'pgListingsData.csv' delimiter '|' csv header;
 COPY location_categories from 'pgLocation_CategoriesData.csv' delimiter '|' csv header;
 COPY tours from 'pgToursData.csv' delimiter '|' csv header;
 
 psql -U postgres < schema2.sql
+
+sudo -u postgres psql
+
+sudo -i -u postgres
+
+psql -U sdc -d tours
 
 node cassGen.js --lines 10000000
 -e SOURCE '/Users/edgarcetinojr/Hack_Reactor/tours_service/schema.cql'

@@ -3,8 +3,10 @@ const pass = require('./dbpass.js')
 
 const pool = new Pool({
   user: pass.user,
+  host: pass.host,
   database: pass.database,
-  password: pass.password
+  password: process.env.postgrespw,
+  port: 5432,
 })
 
 pool.connect()

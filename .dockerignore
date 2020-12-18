@@ -1,0 +1,11 @@
+node_modules
+database/maps
+database/photos
+DataGen/pgCategoriesData.csv
+DataGen/pgListingsData.csv
+DataGen/pgLocationsData.csv
+DataGen/pgToursData.csv
+DataGen/pgListingsData.csv
+DatabaseTours.pem
+login.sh
+seed2.txt

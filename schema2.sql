@@ -71,3 +71,6 @@ CREATE TABLE IF NOT EXISTS tours (
 \COPY tours from 'pgToursData.csv' delimiter '|' csv header;
 
 create index bookings_index ON tours (bookings DESC);
+create index category_index on tours (category_id);
+create index location_id on tours (location_id);
+create index location_category on tours (location_id, category_id);
